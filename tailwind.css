@@ -1,0 +1,75 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --foundation-errorerror-50: rgba(253, 234, 234, 1);
+  --foundation-errorerror-500: rgba(233, 43, 43, 1);
+  --foundation-infoinfo-50: rgba(236, 246, 252, 1);
+  --foundation-infoinfo-500: rgba(63, 161, 227, 1);
+  --foundation-infoinfo-600: rgba(57, 147, 207, 1);
+  --foundation-successsuccess-100: rgba(182, 234, 187, 1);
+  --foundation-successsuccess-50: rgba(231, 248, 233, 1);
+  --foundation-successsuccess-500: rgba(18, 187, 35, 1);
+  --foundation-successsuccess-600: rgba(16, 170, 32, 1);
+  --foundation-warningwarning-50: rgba(254, 239, 230, 1);
+  --foundation-warningwarning-500: rgba(241, 97, 0, 1);
+  --foundation-warningwarning-600: rgba(219, 88, 0, 1);
+  --foundationbrandbrand-50: rgba(235, 238, 252, 1);
+  --foundationbrandbrand-500: rgba(54, 89, 226, 1);
+  --foundationbrandbrand-600: rgba(49, 81, 206, 1);
+  --foundationbrandbrand-75: rgba(216, 224, 253, 1);
+  --foundationgraygray-50: rgba(245, 246, 247, 1);
+  --foundationgraygray-500: rgba(151, 161, 178, 1);
+  --foundationgraygray-700: rgba(107, 114, 126, 1);
+  --foundationtext-colorsprimary-text-color: rgba(35, 35, 35, 1);
+  --foundationtext-colorssecondary-text-color: rgba(119, 119, 119, 1);
+  --secondary-colourblueblue-100: rgba(209, 233, 255, 1);
+  --secondary-colourblueblue-50: rgba(239, 248, 255, 1);
+  --secondary-colourpinkpink-100: rgba(252, 231, 246, 1);
+  --secondary-colourpinkpink-50: rgba(253, 242, 250, 1);
+  --secondary-colourpinkpink-500: rgba(238, 70, 188, 1);
+  --secondary-colourpinkpink-600: rgba(221, 37, 144, 1);
+  --typography-styles-body-regular-font-family: "NunitoSans-Regular", Helvetica;
+  --typography-styles-body-regular-font-size: 14px;
+  --typography-styles-body-regular-font-style: normal;
+  --typography-styles-body-regular-font-weight: 400;
+  --typography-styles-body-regular-letter-spacing: 0px;
+  --typography-styles-body-regular-line-height: 20px;
+  --typography-styles-heading-6-bold-font-family: "NunitoSans-Bold", Helvetica;
+  --typography-styles-heading-6-bold-font-size: 18px;
+  --typography-styles-heading-6-bold-font-style: normal;
+  --typography-styles-heading-6-bold-font-weight: 700;
+  --typography-styles-heading-6-bold-letter-spacing: 0px;
+  --typography-styles-heading-6-bold-line-height: 28px;
+  --typography-styles-heading-6-semi-bold-font-family: "NunitoSans-SemiBold", Helvetica;
+  --typography-styles-heading-6-semi-bold-font-size: 18px;
+  --typography-styles-heading-6-semi-bold-font-style: normal;
+  --typography-styles-heading-6-semi-bold-font-weight: 600;
+  --typography-styles-heading-6-semi-bold-letter-spacing: 0px;
+  --typography-styles-heading-6-semi-bold-line-height: 28px;
+  --typography-styles-large-regular-font-family: "NunitoSans-Regular", Helvetica;
+  --typography-styles-large-regular-font-size: 16px;
+  --typography-styles-large-regular-font-style: normal;
+  --typography-styles-large-regular-font-weight: 400;
+  --typography-styles-large-regular-letter-spacing: 0px;
+  --typography-styles-large-regular-line-height: 24px;
+  --typography-styles-large-semi-bold-font-family: "NunitoSans-SemiBold", Helvetica;
+  --typography-styles-large-semi-bold-font-size: 16px;
+  --typography-styles-large-semi-bold-font-style: normal;
+  --typography-styles-large-semi-bold-font-weight: 600;
+  --typography-styles-large-semi-bold-letter-spacing: 0px;
+  --typography-styles-large-semi-bold-line-height: 24px;
+  --typography-styles-small-regular-font-family: "NunitoSans-Regular", Helvetica;
+  --typography-styles-small-regular-font-size: 12px;
+  --typography-styles-small-regular-font-style: normal;
+  --typography-styles-small-regular-font-weight: 400;
+  --typography-styles-small-regular-letter-spacing: 0px;
+  --typography-styles-small-regular-line-height: 20px;
+  --white: rgba(255, 255, 255, 1);
+}

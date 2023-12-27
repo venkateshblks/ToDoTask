@@ -1,0 +1,9 @@
+{
+  "infiniteLoopProtection": true,
+  "view": "browser",
+  "template": "node",
+  "container": {
+    "node": "16",
+    "port": 1234
+  }
+}

@@ -1,0 +1,1 @@
+export { SizeRegularStateHoverTypeIconSecondary } from "./SizeRegularStateHoverTypeIconSecondary";
