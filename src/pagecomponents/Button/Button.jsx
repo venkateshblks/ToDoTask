@@ -5,8 +5,8 @@ Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcN
 
 import React from "react";
 import { useReducer } from "react";
-import { ChevronRight5 } from "../../icons/ChevronRight5";
-import { SizeRegularStateHoverTypeIconSecondary } from "../../icons/SizeRegularStateHoverTypeIconSecondary";
+import { ChevronRight5 } from "../../pageicons/ChevronRight5";
+import { SizeRegularStateHoverTypeIconSecondary } from "../../pageicons/SizeRegularStateHoverTypeIconSecondary";
 
 export const Button = ({
   iconLeftInstance = false,

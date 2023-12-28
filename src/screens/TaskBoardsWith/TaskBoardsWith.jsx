@@ -1,14 +1,25 @@
-import React from "react";
+import React , { useState }from "react";
 import { Component } from "../../components/Component";
 import { Frame } from "../../components/Frame";
 import { Rectangle } from "../../components/Rectangle";
 import { StatusBadge } from "../../components/StatusBadge";
 import { GhostOrg } from "../../icons/GhostOrg";
 import { Plus1 } from "../../icons/Plus1";
+import { FrameScreen } from "./FrameScreen";
+import { Pframe } from "../../pagecomponents/Frame/Frame";
 
 export const TaskBoardsWith = () => {
+  const [showFrameScreen, setShowFrameScreen] = useState(false);
+
+  const handleButtonClick = () => {
+    // Toggle the state to show/hide FrameScreen
+    setShowFrameScreen((prev) => !prev);
+    // alert(handleC)
+  };
   return (
+    
     <div className="bg-[#ffffff] flex flex-row justify-center w-full">
+      {/* <Pframe/> */}
       <div className="bg-[#ffffff] w-[1440px] h-[1024px] relative">
         <div className="absolute w-[240px] h-[1024px] top-0 left-0 bg-[#ffffff] shadow-[0px_0px_8px_#3659e229]">
           <div className="inline-flex flex-col items-start gap-[24px] relative">
@@ -25,28 +36,28 @@ export const TaskBoardsWith = () => {
             </div>
             <div className="flex h-[32px] items-center gap-[10px] px-[24px] py-[10px] relative self-stretch w-full bg-white border-t [border-top-style:solid] border-foundationbrandbrand-50">
               <Plus1 className="!relative !w-[12px] !h-[12px]" />
-              <div className="relative w-fit mt-[-5.00px] mb-[-3.00px] font-typography-styles-small-regular font-[number:var(--typography-styles-small-regular-font-weight)] text-foundationbrandbrand-500 text-[length:var(--typography-styles-small-regular-font-size)] tracking-[var(--typography-styles-small-regular-letter-spacing)] leading-[var(--typography-styles-small-regular-line-height)] whitespace-nowrap [font-style:var(--typography-styles-small-regular-font-style)]">
+            <button onClick={handleButtonClick}>  <div className="relative w-fit mt-[-5.00px] mb-[-3.00px] font-typography-styles-small-regular font-[number:var(--typography-styles-small-regular-font-weight)] text-foundationbrandbrand-500 text-[length:var(--typography-styles-small-regular-font-size)] tracking-[var(--typography-styles-small-regular-letter-spacing)] leading-[var(--typography-styles-small-regular-line-height)] whitespace-nowrap [font-style:var(--typography-styles-small-regular-font-style)]">
                 Add new Project
-              </div>
+              </div></button>
             </div>
           </div>
         </div>
         <div className="absolute w-[1200px] h-[1024px] top-0 left-[240px]">
-          <img
+          {/* <img
             className="left-[304px] absolute w-[5px] h-[826px] top-[133px] object-cover"
             alt="Line"
             src="https://c.animaapp.com/eSquVIIx/img/line-1.svg"
-          />
+            />
           <img
             className="left-[598px] absolute w-[5px] h-[826px] top-[133px] object-cover"
             alt="Line"
             src="https://c.animaapp.com/eSquVIIx/img/line-1.svg"
-          />
+            />
           <img
             className="left-[892px] absolute w-[5px] h-[826px] top-[133px] object-cover"
             alt="Line"
             src="https://c.animaapp.com/eSquVIIx/img/line-1.svg"
-          />
+            /> */}
           <div className="inline-flex flex-col items-start gap-[20px] absolute top-[84px] left-[24px]">
             <div className="inline-flex flex-col items-start gap-[19px] relative flex-[0_0_auto]">
               <StatusBadge badgeType="brand" className="!h-[32px] !px-[12px] !py-[4px]" text="To Do" />
@@ -91,6 +102,13 @@ export const TaskBoardsWith = () => {
           </div>
         </div>
       </div>
+        
+        {showFrameScreen && <div className="fixed top-0 left-1/4 transform -translate-x-1/2 -translate-y-1/2">
+      <div className="bg-white p-8 rounded-md shadow-md max-w-md w-full md:max-w-lg">
+        <FrameScreen />
+      </div>
+    </div>}
     </div>
+    
   );
 };

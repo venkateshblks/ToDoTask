@@ -1,18 +1,14 @@
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/
 
-import React from "react";
+import React ,{useState} from "react";
 import { useReducer } from "react";
-import { Calendar2 } from "../../icons/Calendar2";
-import { ChevronDown1 } from "../../icons/ChevronDown1";
-import { X2 } from "../../icons/X2";
+import { Calendar2 } from "../../pageicons/Calendar2";
+import { ChevronDown1 } from "../../pageicons/ChevronDown1";
+import { X2 } from "../../pageicons/X2";
 import { Button } from "../Button";
 import { FormField } from "../FormField";
 import { TextField } from "../TextField";
-
-export const Frame = ({
+import { TaskBoardsWith } from "../../screens/TaskBoardsWith";
+export const Pframe = ({
   cardState,
   formFieldTextFieldIcon = (
     <Calendar2 className="!relative !w-[20px] !h-[20px]" />
@@ -25,8 +21,19 @@ export const Frame = ({
   const [state, dispatch] = useReducer(reducer, {
     cardState: cardState || "unfilled"
   });
+  const [s, setS] = useState(false);
 
-  return (
+  const k = () => {
+    // Toggle the state to show/hide FrameScreen
+    setS(true);
+    alert('handleC')
+    // handleButtonClick()
+  };
+  // const k=()=>{
+   
+  // }
+  
+  return (<>{setS && 
     <div className="inline-flex flex-col items-start overflow-hidden rounded-[10px] relative">
       <div className="[border-bottom-style:solid] border-foundationbrandbrand-75 w-[670px] flex items-center px-[24px] py-[10px] h-[52px] border-b justify-between bg-white relative">
         <div className="font-typography-styles-large-regular w-fit tracking-[var(--typography-styles-large-regular-letter-spacing)] [font-style:var(--typography-styles-large-regular-font-style)] text-[length:var(--typography-styles-large-regular-font-size)] text-foundationbrandbrand-700 font-[number:var(--typography-styles-large-regular-font-weight)] leading-[var(--typography-styles-large-regular-line-height)] whitespace-nowrap relative">
@@ -36,7 +43,7 @@ export const Frame = ({
 
           {state.cardState === "card-state4" && <>Edit task</>}
         </div>
-        <X2 className="!relative !w-[20px] !h-[20px]" />
+       <button onClick={k}> <X2   className="!relative !w-[20px] !h-[20px]" /></button>
       </div>
       <div
         className="w-[670px] flex flex-col items-start gap-[24px] flex-[0_0_auto] px-[24px] py-[16px] bg-white relative"
@@ -186,7 +193,7 @@ export const Frame = ({
           type="primary"
         />
       </div>
-    </div>
+    </div>} </>
   );
 };
 
