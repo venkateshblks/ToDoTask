@@ -1,5 +1,5 @@
 
-import React ,{useState} from "react";
+import React ,{useCallback, useState} from "react";
 import { useReducer } from "react";
 import { Calendar2 } from "../../pageicons/Calendar2";
 import { ChevronDown1 } from "../../pageicons/ChevronDown1";
@@ -7,8 +7,10 @@ import { X2 } from "../../pageicons/X2";
 import { Button } from "../Button";
 import { FormField } from "../FormField";
 import { TextField } from "../TextField";
-import { TaskBoardsWith } from "../../screens/TaskBoardsWith";
+import { TaskBoardsWith } from "../../screens/TaskBoardsWith/TaskBoardsWith";
 export const Pframe = ({
+ 
+ 
   cardState,
   formFieldTextFieldIcon = (
     <Calendar2 className="!relative !w-[20px] !h-[20px]" />
@@ -21,19 +23,26 @@ export const Pframe = ({
   const [state, dispatch] = useReducer(reducer, {
     cardState: cardState || "unfilled"
   });
-  const [s, setS] = useState(false);
-
-  const k = () => {
+  const [showFrameScreen, setShowFrameScreen] = useState(false);
+  // const K='hrello'
+  const handleButtonClick = () => {
     // Toggle the state to show/hide FrameScreen
-    setS(true);
-    alert('handleC')
-    // handleButtonClick()
+  // useCallback(()=>{  setShowFrameScreen(true);},[])
+  setShowFrameScreen(true);
+    // alert(handleC)
+    // alert(showFrameScreen)
   };
-  // const k=()=>{
-   
+  // if(showFrameScreen){
+
+  //   <TaskBoardsWith/>
   // }
-  
-  return (<>{setS && 
+  // else{
+  //   useCallback(()=>{  setShowFrameScreen(false);},[])
+  // }
+  return (<>
+  {showFrameScreen ? <YourComponent /> : null}
+  {/* {showFrameScreen && <YourComponent />} */}
+  {showFrameScreen ||
     <div className="inline-flex flex-col items-start overflow-hidden rounded-[10px] relative">
       <div className="[border-bottom-style:solid] border-foundationbrandbrand-75 w-[670px] flex items-center px-[24px] py-[10px] h-[52px] border-b justify-between bg-white relative">
         <div className="font-typography-styles-large-regular w-fit tracking-[var(--typography-styles-large-regular-letter-spacing)] [font-style:var(--typography-styles-large-regular-font-style)] text-[length:var(--typography-styles-large-regular-font-size)] text-foundationbrandbrand-700 font-[number:var(--typography-styles-large-regular-font-weight)] leading-[var(--typography-styles-large-regular-line-height)] whitespace-nowrap relative">
@@ -43,7 +52,7 @@ export const Pframe = ({
 
           {state.cardState === "card-state4" && <>Edit task</>}
         </div>
-       <button onClick={k}> <X2   className="!relative !w-[20px] !h-[20px]" /></button>
+       <button onClick={handleButtonClick}> <X2   className="!relative !w-[20px] !h-[20px]" /></button>
       </div>
       <div
         className="w-[670px] flex flex-col items-start gap-[24px] flex-[0_0_auto] px-[24px] py-[16px] bg-white relative"
@@ -193,7 +202,7 @@ export const Pframe = ({
           type="primary"
         />
       </div>
-    </div>} </>
+    </div> }</>
   );
 };
 

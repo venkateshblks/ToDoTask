@@ -6,16 +6,18 @@ import { StatusBadge } from "../../components/StatusBadge";
 import { GhostOrg } from "../../icons/GhostOrg";
 import { Plus1 } from "../../icons/Plus1";
 import { FrameScreen } from "./FrameScreen";
-import { Pframe } from "../../pagecomponents/Frame/Frame";
+// import { Pframe } from "../../pagecomponents/Frame/Frame";
 
-export const TaskBoardsWith = () => {
+export const TaskBoardsWith = (props) => {
+  // alert(props.props)
   const [showFrameScreen, setShowFrameScreen] = useState(false);
-
+  // const K='hrello'
   const handleButtonClick = () => {
     // Toggle the state to show/hide FrameScreen
     setShowFrameScreen((prev) => !prev);
     // alert(handleC)
   };
+ 
   return (
     
     <div className="bg-[#ffffff] flex flex-row justify-center w-full">
@@ -36,7 +38,7 @@ export const TaskBoardsWith = () => {
             </div>
             <div className="flex h-[32px] items-center gap-[10px] px-[24px] py-[10px] relative self-stretch w-full bg-white border-t [border-top-style:solid] border-foundationbrandbrand-50">
               <Plus1 className="!relative !w-[12px] !h-[12px]" />
-            <button onClick={handleButtonClick}>  <div className="relative w-fit mt-[-5.00px] mb-[-3.00px] font-typography-styles-small-regular font-[number:var(--typography-styles-small-regular-font-weight)] text-foundationbrandbrand-500 text-[length:var(--typography-styles-small-regular-font-size)] tracking-[var(--typography-styles-small-regular-letter-spacing)] leading-[var(--typography-styles-small-regular-line-height)] whitespace-nowrap [font-style:var(--typography-styles-small-regular-font-style)]">
+            <button onClick={handleButtonClick} >  <div className="relative w-fit mt-[-5.00px] mb-[-3.00px] font-typography-styles-small-regular font-[number:var(--typography-styles-small-regular-font-weight)] text-foundationbrandbrand-500 text-[length:var(--typography-styles-small-regular-font-size)] tracking-[var(--typography-styles-small-regular-letter-spacing)] leading-[var(--typography-styles-small-regular-line-height)] whitespace-nowrap [font-style:var(--typography-styles-small-regular-font-style)]">
                 Add new Project
               </div></button>
             </div>
@@ -103,11 +105,13 @@ export const TaskBoardsWith = () => {
         </div>
       </div>
         
-        {showFrameScreen && <div className="fixed top-0 left-1/4 transform -translate-x-1/2 -translate-y-1/2">
-      <div className="bg-white p-8 rounded-md shadow-md max-w-md w-full md:max-w-lg">
-        <FrameScreen />
-      </div>
-    </div>}
+        {showFrameScreen && 
+      //   <div className="fixed top-0 left-1/4 transform -translate-x-1/2 -translate-y-1/2">
+      // <div className="bg-white p-8 rounded-md shadow-md max-w-md w-full md:max-w-lg">
+          <FrameScreen/>
+    //   </div>
+    // </div>
+    }
     </div>
     
   );
