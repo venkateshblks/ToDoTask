@@ -40,8 +40,8 @@ export const Pframe = ({
   //   useCallback(()=>{  setShowFrameScreen(false);},[])
   // }
   return (<>
-  {showFrameScreen ? <YourComponent /> : null}
-  {/* {showFrameScreen && <YourComponent />} */}
+  {/* {showFrameScreen ? <YourComponent /> : null} */}
+  {showFrameScreen && null}
   {showFrameScreen ||
     <div className="inline-flex flex-col items-start overflow-hidden rounded-[10px] relative">
       <div className="[border-bottom-style:solid] border-foundationbrandbrand-75 w-[670px] flex items-center px-[24px] py-[10px] h-[52px] border-b justify-between bg-white relative">

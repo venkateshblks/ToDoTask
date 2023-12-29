@@ -106,13 +106,14 @@ export const TaskBoardsWith = (props) => {
       </div>
         
         {showFrameScreen && 
-      //   <div className="fixed top-0 left-1/4 transform -translate-x-1/2 -translate-y-1/2">
-      // <div className="bg-white p-8 rounded-md shadow-md max-w-md w-full md:max-w-lg">
+        <div className="fixed top-0 left-1/4 transform -translate-x-1/2 -translate-y-1/2">
+       {/* <div className="bg-white p-8 rounded-md shadow-md max-w-md w-full md:max-w-lg"> */}
           <FrameScreen/>
-    //   </div>
+     </div>
     // </div>
     }
     </div>
     
   );
+
 };
