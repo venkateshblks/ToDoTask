@@ -1,19 +1,26 @@
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/
 
-import React from "react";
+
+import React,{useState} from "react";
 import { useReducer } from "react";
 import { Plus4 } from "../../icons/Plus4";
+import { Pframe } from "../../pagecomponents/Frame/Frame";
+import { FrameScreen } from "../../screens/TaskBoardsWith/FrameScreen";
 
 export const Component = ({ stateProp, hover, className }) => {
   const [state, dispatch] = useReducer(reducer, {
     state: stateProp || "to-do-add",
     hover: hover || false,
   });
+  const [showFrameScreen, setShowFrameScreen] = useState(false);
+  // const K='hrello'
+  const handleButtonClick = () => {
+    // Toggle the state to show/hide FrameScreen
+    setShowFrameScreen((prev) => !prev);
+    // alert(handleC)
+  };
 
   return (
+    <div className="bg-[#ffffff] flex flex-row justify-center w-full">
     <div
       className={`inline-flex flex-col items-start gap-[24px] relative ${className}`}
       onMouseLeave={() => {
@@ -23,7 +30,8 @@ export const Component = ({ stateProp, hover, className }) => {
         dispatch("mouse_enter");
       }}
     >
-      <button
+      
+      <button onClick={handleButtonClick}
         className={`w-[270px] flex items-center gap-[4px] px-[8px] py-[10px] h-[32px] rounded-[8px] justify-center relative all-[unset] box-border ${
           state.state === "completed-add" && state.hover
             ? "bg-foundation-successsuccess-100"
@@ -77,7 +85,14 @@ export const Component = ({ stateProp, hover, className }) => {
             Add new
           </div>
         </div>
-      </button>
+      </button></div>
+      {showFrameScreen && 
+        <div className=" top-0 left-1/4 ">
+       {/* <div className="bg-white p-8 rounded-md shadow-md max-w-md w-full md:max-w-lg"> */}
+          <FrameScreen/>
+     </div>
+//  </div>
+    }
     </div>
   );
 };

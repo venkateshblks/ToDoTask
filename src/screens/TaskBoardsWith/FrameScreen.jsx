@@ -6,7 +6,7 @@ import { ChevronDown1 } from "../../pageicons/ChevronDown1";
 
 export const FrameScreen = () => {
   return (
-    <div className=''>
+    <div className='bg-green'>
       {/* <TaskBoardsWith/> */}
     <Pframe 
      cardState="unfilled"
