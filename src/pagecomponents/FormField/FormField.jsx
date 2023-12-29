@@ -1,7 +1,4 @@
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/
+
 
 import React from "react";
 import { X2 } from "../../pageicons/X2";
@@ -33,6 +30,7 @@ export const FormField = ({
         axis === "vertical" ? "flex-col" : ""
       } ${axis === "horizontal" ? "gap-[8px]" : "gap-[4px]"} ${className}`}
     >
+   
       {showLabel && (
         <div
           className={`relative ${axis === "horizontal" ? "inline-flex" : ""} ${
@@ -65,22 +63,31 @@ export const FormField = ({
             </div>
           )}
 
-          {axis === "vertical" && <>{text}</>}
+           {axis === "vertical" && <>{text}</>
+        }
         </div>
       )}
 
       {axis === "vertical" && (
         <>
-          <TextField
-            className="!self-stretch !w-full"
-            icon={textFieldIcon}
-            showLeftIcon={textFieldShowLeftIcon}
-            showRightIcon={textFieldShowRightIcon}
+        <input
+  className="!self-stretch !w-full border border-solid border-gray-300 rounded px-4 py-2"
+  type="text"
+  icon={textFieldIcon}
+  showLeftIcon={textFieldShowLeftIcon}
+  showRightIcon={textFieldShowRightIcon}
+  // value='ki'
+  // value=
+  // placeholder={textFieldTextActive ? '' : 'Text'}
+/>
+          {/* <TextField
+            className="!self-stretch !w-full "
             size={size === "medium" ? "regular" : size === "large" ? "large" : "small"}
+            type='text'
             stateProp="default"
             textActive={textFieldTextActive}
             textText={textFieldTextText}
-          />
+          /> */}
           <>
             {hintText && (
               <div className="font-typography-styles-small-regular w-fit tracking-[var(--typography-styles-small-regular-letter-spacing)] [font-style:var(--typography-styles-small-regular-font-style)] text-[length:var(--typography-styles-small-regular-font-size)] text-foundationtext-colorsteritiary-text-color relative font-[number:var(--typography-styles-small-regular-font-weight)] whitespace-nowrap leading-[var(--typography-styles-small-regular-line-height)]">
@@ -97,8 +104,8 @@ export const FormField = ({
             ["large", "small"].includes(size) ? "grow" : ""
           } ${size === "medium" ? "flex-[0_0_auto]" : "flex-1"}`}
         >
-          <TextField
-            className="!w-[265px]"
+          <input
+            className="!w-[265px] flex h-44 p-4 md:p-12 justify-between items-center self-stretch border-radius-8 border border-solid border-gray-300 bg-white"
             icon={
               <X2
                 className={
