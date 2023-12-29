@@ -23,7 +23,7 @@ export const Pframe = ({
   const statusOptions = [
     { value: 'todo', label: 'To Do' },
     { value: 'inprogress', label: 'In Progress' },
-    { value: 'inprogress', label: 'Review' },
+    { value: 'Review', label: 'Review' },
     { value: 'completed', label: 'Completed' },
   ];
   
@@ -46,6 +46,43 @@ export const Pframe = ({
   // else{
   //   useCallback(()=>{  setShowFrameScreen(false);},[])
   // }
+  const [formData, setFormData] = useState({
+    taskName: '',
+    startDate: '',
+    deadline: '',
+    status: '',
+  });
+
+  const handleC = (e) => {
+    e.preventDefault()
+    const { name, value } = e.target;
+    
+    // console.log(value)
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  
+  const handleButtonC = () => {
+    // e.preventDefault()
+    // Convert formData to JSON and store or process as needed
+    const jsonData = JSON.stringify(formData);
+    console.log(jsonData);
+    alert(jsonData)
+    // Add logic to save or process the JSON data
+  };
+
+
+
+  const [formValue, setFormValue] = useState(
+    '' // Initial value based on your logic
+  );
+
+  const handleChange = (event) => {
+    setFormValue(event.target.value);
+    console.log(formValue)
+  };
   return (<>
   {/* {showFrameScreen ? <YourComponent /> : null} */}
   {showFrameScreen && null}
@@ -69,19 +106,27 @@ export const Pframe = ({
           dispatch("click");
         }}
       >
+      <label htmlFor="status" className="relative w-fit mt-[-1.00px] font-typography-styles-small-regular font-[number:var(--typography-styles-small-regular-font-weight)] text-foundationtext-colorsprimary-text-color text-[length:var(--typography-styles-small-regular-font-size)] tracking-[var(--typography-styles-small-regular-letter-spacing)] leading-[var(--typography-styles-small-regular-line-height)] whitespace-nowrap [font-style:var(--typography-styles-small-regular-font-style)]">Name of the Task</label>
+
         {["card-state4", "filled", "unfilled"].includes(state.cardState) && (
-          <FormField
+          
+          <input
             axis="vertical"
-            className="!self-stretch !flex-[0_0_auto] !w-full"
-            hintText={false}
+            // className="!self-stretch !flex-[0_0_auto] !w-full"
+            className="appearance-none border rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white w-full"
+            // hintText={false}
             size="large"
+            name="taskName"
+
             text="Name of the Task"
-            textFieldShowLeftIcon={false}
-            textFieldShowRightIcon={false}
-            textFieldTextActive={state.cardState === "unfilled" ? false : true}
-            textFieldTextText={
-              state.cardState === "unfilled" ? "Text" : "Create a to-do app"
-            }
+            // textFieldShowLeftIcon={false}
+            // textFieldShowRightIcon={false}
+             value={formData.taskName}
+             onChange={handleC}
+            // textFieldTextActive={state.cardState === "unfilled" ? false : true}
+            // textFieldTextText={
+            //   state.cardState === "unfilled" ? "Text" : "Create a to-do app"
+            // }
           />
         )}
 
@@ -91,7 +136,10 @@ export const Pframe = ({
               Name of the Task
             </div>
             <TextField
-              className=""
+              className="deadline"
+              value={formData.taskName}
+              onChange={handleC}
+          
               // showLeftIcon={false}
               // showRightIcon={false}
               // size="large"
@@ -104,7 +152,18 @@ export const Pframe = ({
             </p>
           </div>
         )}
-  
+ <div className="flex space-x-4">
+  <label htmlFor="Start date" className="relative mr-20 mt-[-1.00px] font-typography-styles-small-regular font-[number:var(--typography-styles-small-regular-font-weight)] text-foundationtext-colorsprimary-text-color text-[length:var(--typography-styles-small-regular-font-size)] tracking-[var(--typography-styles-small-regular-letter-spacing)] leading-[var(--typography-styles-small-regular-line-height)] whitespace-nowrap [font-style:var(--typography-styles-small-regular-font-style)]">
+  Start date 
+  </label>
+  <div className="flex items-center ">
+    <label htmlFor="Deadline" className="absolute left-80  font-typography-styles-small-regular font-[number:var(--typography-styles-small-regular-font-weight)] text-foundationtext-colorsprimary-text-color text-[length:var(--typography-styles-small-regular-font-size)] tracking-[var(--typography-styles-small-regular-letter-spacing)] leading-[var(--typography-styles-small-regular-line-height)] whitespace-nowrap [font-style:var(--typography-styles-small-regular-font-style)]">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Deadline
+    </label>
+   
+  </div>
+</div>
         <div className="w-full flex self-stretch items-start gap-[10px] flex-[0_0_auto] relative">
           {["card-state4", "filled", "unfilled"].includes(state.cardState) && (
             <>
@@ -119,42 +178,52 @@ export const Pframe = ({
   textFieldTextActive={false}
   textFieldTextText="DD/MM/YYYY"
 /> */}
-              <FormField
+        
+              <input
               type="date"
+              name="startDate"
+              value={formData.startDate}
+              onChange={handleC} 
                 axis="vertical"
                 // className="!flex-1 !grow !w-[unset] !self-stretch !w-full border border-solid border-gray-300 rounded px-4 py-2"
-                className="!flex-1 !grow !w-[unset]"
+                // className="!flex-1 !grow !w-[unset]"
+                className='appearance-none  border border-solid border-blue-gray-300 rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white w-1/2 flex-shrink-0 flex-basis-auto relative font-nunito-sans text-gray-500 text-base font-normal leading-6 text-left whitespace-nowrap z-2'
 
-                hintText={false}
+                // hintText={false}
                 size="large"
                 text="Start date"
-                textFieldIcon={formFieldTextFieldIcon}
-                textFieldShowLeftIcon={false}
-                textFieldTextActive={
-                  state.cardState === "unfilled" ? false : true
-                }
-                textFieldTextText={
-                  state.cardState === "unfilled" ? "DD/MM/YYYY" : "01/12/2023"
-                }
+                // textFieldIcon={formFieldTextFieldIcon}
+                // textFieldShowLeftIcon={false}
+                // textFieldTextActive={
+                //   state.cardState === "unfilled" ? false : true
+                // }
+                // textFieldTextText={
+                //   state.cardState === "unfilled" ? "DD/MM/YYYY" : "01/12/2023"
+                // }
               />
-               {/* <label for="startDate" class="relative w-fit mt-[-1.00px] font-typography-styles-small-regular font-[number:var(--typography-styles-small-regular-font-weight)] text-foundationtext-colorsprimary-text-color text-[length:var(--typography-styles-small-regular-font-size)] tracking-[var(--typography-styles-small-regular-letter-spacing)] leading-[var(--typography-styles-small-regular-line-height)] whitespace-nowrap [font-style:var(--typography-styles-small-regular-font-style)]">Start Date</label> */}
 
-              <FormField
+              <input
         //  className="!flex-1 !grow !w-[unset] !self-stretch !w-full border border-solid border-gray-300 rounded px-4 py-2"
                   type="date"
+                  name="deadline"
+                  value={formData.deadline}
+                  onChange={handleC}
+              
                 axis="vertical"
-                className="!flex-1 !grow !w-[unset]"
-                hintText={false}
+                // className="!flex-1 !grow !w-[unset]"
+                className='appearance-none  border border-solid border-blue-gray-300 rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white w-1/2 flex-shrink-0 flex-basis-auto relative font-nunito-sans text-gray-500 text-base font-normal leading-6 text-left whitespace-nowrap z-2'
+
+                // hintText={false}
                 size="large"
                 text="Deadline"
-                textFieldIcon={override}
-                textFieldShowLeftIcon={false}
-                textFieldTextActive={
-                  state.cardState === "unfilled" ? false : true
-                }
-                textFieldTextText={
-                  state.cardState === "unfilled" ? "DD/MM/YYYY" : "06/12/2023"
-                }
+                // textFieldIcon={override}
+                // textFieldShowLeftIcon={false}
+                // textFieldTextActive={
+                //   state.cardState === "unfilled" ? false : true
+                // }
+                // textFieldTextText={
+                //   state.cardState === "unfilled" ? "DD/MM/YYYY" : "06/12/2023"
+                // }
               />
             </>
           )}
@@ -270,7 +339,7 @@ export const Pframe = ({
 
     <div className="flex flex-col  space-y-4 m-6">
     
-                     <label for="status" class="relative w-fit mt-[-1.00px] font-typography-styles-small-regular font-[number:var(--typography-styles-small-regular-font-weight)] text-foundationtext-colorsprimary-text-color text-[length:var(--typography-styles-small-regular-font-size)] tracking-[var(--typography-styles-small-regular-letter-spacing)] leading-[var(--typography-styles-small-regular-line-height)] whitespace-nowrap [font-style:var(--typography-styles-small-regular-font-style)]">Status</label>
+                     <label htmlFor="status" className="relative w-fit mt-[-1.00px] font-typography-styles-small-regular font-[number:var(--typography-styles-small-regular-font-weight)] text-foundationtext-colorsprimary-text-color text-[length:var(--typography-styles-small-regular-font-size)] tracking-[var(--typography-styles-small-regular-letter-spacing)] leading-[var(--typography-styles-small-regular-line-height)] whitespace-nowrap [font-style:var(--typography-styles-small-regular-font-style)]">Status</label>
 
       <div className="relative w-full">
         <select
@@ -302,14 +371,27 @@ export const Pframe = ({
 
 
       <div className="border-foundationbrandbrand-75 w-[670px] border-t flex items-center [border-top-style:solid] gap-[10px] flex-[0_0_auto] px-[24px] py-[10px] justify-end bg-white relative">
-        <Button
+        {/* <Button
+
           size="small"
           sizeSmallStateClassName="!flex-[0_0_auto]"
           stateProp="default"
           text="Cancel"
           type="secondary"
-        />
-        <Button
+          onClick={handleButtonC} 
+        /> */}
+        <div className="flex items-center justify-center flex-no-wrap gap-1 relative w-69 h-22 mx-0 px-8 py-10 rounded">
+  
+  <button className="  rounded-[8px] border-none bg-foundationbrandbrand-50  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-blue-600 text-base font-normal leading-4 text-left whitespace-nowrap z-1">
+    Cancel
+  </button>
+</div>
+        <div className="flex items-center justify-center flex-no-wrap gap-1 relative w-69 h-22 mx-0 px-8 py-10 rounded">  
+  <button onClick={handleButtonC}  className="  rounded-[8px] border-none bg-foundationbrandbrand-500  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-white  text-base font-normal leading-4 text-left whitespace-nowrap z-1">
+    Add
+  </button>
+</div>
+        {/* <Button
           onSizeSmallStateClick={() => {
             dispatch("click_120");
           }}
@@ -318,7 +400,7 @@ export const Pframe = ({
           stateProp="default"
           text={state.cardState === "card-state4" ? "Save" : "Add"}
           type="primary"
-        />
+        /> */}
       </div>
       </form>
     </div> }</>
