@@ -6,6 +6,4 @@ import { App } from "./screens/TaskBoardsWith/App";
 
 const app = document.getElementById("app");
 const root = ReactDOMClient.createRoot(app);
-root.render(<App >
-   {/* <Pframe/> */}
-</App>);
+root.render(<App/>);

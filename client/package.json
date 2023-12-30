@@ -7,7 +7,7 @@
     "build": "parcel build --public-url ./ --no-scope-hoist",
     "dev": "parcel" 
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "https://scaling-invention-5p4vgvwxg6jc7wqw-1234.app.github.dev",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

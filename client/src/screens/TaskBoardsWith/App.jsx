@@ -4,12 +4,11 @@ import { FrameScreen } from "./FrameScreen";
 
 
 export const App=()=>{
-    const [data, setData] = React.useState('null');
+    const [data, setData] = React.useState(null);
 
     React.useEffect(() => {
       fetch("/api")
-        .then((res) => res.json())
-        .then((data) => setData(data.message));
+        .then((res) => res.json()).then((data) => setData(data.message));
         console.log(data)
     }, []);
    
