@@ -7,9 +7,23 @@ export const Rectangle = ({ stateProp, className }) => {
   const [state, dispatch] = useReducer(reducer, {
     state: stateProp || "default",
   });
-
-  return (
-    <div
+    k=[{
+      taskName: 'hello',
+      startDate: '11/11/1111',
+      deadline: '11/22/1111',
+      status: 'todo',
+    },
+    {
+      taskName: 'byee',
+      startDate: '11/11/1432',
+      deadline: '11/22/1111',
+      status: 'Completed',
+    }]
+  return (<>
+   { k.map((k)=>{
+    
+    return (
+       <div
       className={`w-[270px] overflow-hidden rounded-[8px] bg-[#ffffff] relative ${
         state.state === "default" ? "flex" : ""
       } ${state.state === "default" ? "flex-col" : ""} ${state.state === "default" ? "items-start" : ""} ${
@@ -33,7 +47,7 @@ export const Rectangle = ({ stateProp, className }) => {
           state.state === "hover" ? "top-[15px]" : ""
         } ${state.state === "hover" ? "absolute" : "relative"}`}
       >
-        Create a To-Do App
+        Create a To-Do App{k.taskName}
       </div>
       <div
         className={`inline-flex items-start gap-[24px] ${state.state === "hover" ? "left-[16px]" : ""} ${
@@ -43,7 +57,7 @@ export const Rectangle = ({ stateProp, className }) => {
         <DataLabel
           className="!flex-[0_0_auto]"
           labelShowIcon={false}
-          labelText="01/12/2023"
+          labelText={k.startDate}
           size="small"
           text="Start date"
           type="label"
@@ -59,13 +73,13 @@ export const Rectangle = ({ stateProp, className }) => {
           visible={false}
         />
       </div>
-    </div>
+    </div> ) })}</>
   );
 };
 
 function reducer(state, action) {
   switch (action) {
-    case "mouse_enter":
+    case "mouse_enter ":
       return {
         ...state,
         state: "hover",
