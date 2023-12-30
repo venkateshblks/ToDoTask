@@ -47,7 +47,7 @@ export const Rectangle = ({ stateProp, className }) => {
           state.state === "hover" ? "top-[15px]" : ""
         } ${state.state === "hover" ? "absolute" : "relative"}`}
       >
-        Create a To-Do App{k.taskName}
+        {k.taskName}
       </div>
       <div
         className={`inline-flex items-start gap-[24px] ${state.state === "hover" ? "left-[16px]" : ""} ${
@@ -66,7 +66,7 @@ export const Rectangle = ({ stateProp, className }) => {
         <DataLabel
           className="!flex-[0_0_auto]"
           labelShowIcon={false}
-          labelText="06/12/2023"
+          labelText={k.deadline}
           size="small"
           text="Deadline"
           type="label"

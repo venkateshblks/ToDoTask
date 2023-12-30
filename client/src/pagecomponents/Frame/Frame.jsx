@@ -64,9 +64,11 @@ export const Pframe = ({
     }));
   };
   
-  const handleButtonC = () => {
+  const handleButtonC = (e) => {
     // e.preventDefault()
     // Convert formData to JSON and store or process as needed
+    // e.preventDefault()
+
     const jsonData = JSON.stringify(formData);
     console.log(jsonData);
     alert(jsonData)
@@ -390,7 +392,7 @@ export const Pframe = ({
         /> */}
         <div className="flex items-center justify-center flex-no-wrap gap-1 relative w-69 h-22 mx-0 px-8 py-10 rounded">
   
-  <button className=" cursor-pointer rounded-[8px] border-none bg-foundationbrandbrand-50  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-blue-600 text-base font-normal leading-4 text-left whitespace-nowrap z-1">
+  <button className="cursor-pointer rounded-[8px] border-none bg-foundationbrandbrand-50  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-blue-600 text-base font-normal leading-4 text-left whitespace-nowrap z-1">
     Cancel
   </button>
 </div>

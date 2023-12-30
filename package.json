@@ -1,24 +1,17 @@
 {
-  "name": "project",
+  "name": "todotest",
   "version": "1.0.0",
-  "description": "the design-to-code platform",
-  "source": "./index.html",
+  "description": "> **Prerequisites:** > The following steps require [NodeJS](https://nodejs.org/en/) to be installed on your system, so please > install it beforehand if you haven't already.",
+  "main": "index.js",
+  
   "scripts": {
-    "build": "parcel build --public-url ./ --no-scope-hoist",
-    "dev": "parcel"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node server/index.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.21.4",
-    "htmlnano": "2.0.3",
-    "parcel": "^2.8.0",
-    "parcel-reporter-static-files-copy": "^1.5.0",
-    "postcss": "^8.4.27",
-    "process": "^0.11.10",
-    "tailwindcss": "^3.3.3"
+    "express": "^4.18.2"
   }
 }
