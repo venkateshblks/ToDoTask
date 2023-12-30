@@ -5,16 +5,18 @@
   "source": "./index.html",
   "scripts": {
     "build": "parcel build --public-url ./ --no-scope-hoist",
-    "dev": "parcel" 
+    "dev": "parcel"
   },
-  "proxy": "https://scaling-invention-5p4vgvwxg6jc7wqw-1234.app.github.dev",
+ 
   "dependencies": {
+    "axios": "^1.6.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
+    "buffer": "^6.0.3",
     "htmlnano": "2.0.3",
     "parcel": "^2.8.0",
     "parcel-reporter-static-files-copy": "^1.5.0",
