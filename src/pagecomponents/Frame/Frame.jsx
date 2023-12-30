@@ -23,7 +23,7 @@ export const Pframe = ({
   const statusOptions = [
     { value: 'todo', label: 'To Do' },
     { value: 'inprogress', label: 'In Progress' },
-    { value: 'Review', label: 'Review' },
+    { value: 'review', label: 'In Review' },
     { value: 'completed', label: 'Completed' },
   ];
   
@@ -50,7 +50,7 @@ export const Pframe = ({
     taskName: '',
     startDate: '',
     deadline: '',
-    status: '',
+    status: 'todo',
   });
 
   const handleC = (e) => {
@@ -98,7 +98,7 @@ export const Pframe = ({
 
           {state.cardState === "card-state4" && <>Edit task</>}
         </div>
-       <button onClick={handleButtonClick}> <X2   className="!relative !w-[20px] !h-[20px]" /></button>
+       <button onClick={handleButtonClick}> <X2   className=" cursor-pointer !relative !w-[20px] !h-[20px]" /></button>
       </div>
       <div
         className="w-[670px] flex flex-col items-start gap-[24px] flex-[0_0_auto] px-[24px] py-[16px] bg-white relative"
@@ -113,7 +113,7 @@ export const Pframe = ({
           <input
             axis="vertical"
             // className="!self-stretch !flex-[0_0_auto] !w-full"
-            className="appearance-none border rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white w-full"
+            className="   appearance-none border rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white w-full"
             // hintText={false}
             size="large"
             name="taskName"
@@ -127,8 +127,10 @@ export const Pframe = ({
             // textFieldTextText={
             //   state.cardState === "unfilled" ? "Text" : "Create a to-do app"
             // }
+            required
           />
-        )}
+  )}
+     
 
         {state.cardState === "card-state3" && (
           <div className="self-stretch w-full flex-[0_0_auto] flex flex-col items-start gap-[4px] relative">
@@ -200,6 +202,7 @@ export const Pframe = ({
                 // textFieldTextText={
                 //   state.cardState === "unfilled" ? "DD/MM/YYYY" : "01/12/2023"
                 // }
+                required
               />
 
               <input
@@ -224,6 +227,7 @@ export const Pframe = ({
                 // textFieldTextText={
                 //   state.cardState === "unfilled" ? "DD/MM/YYYY" : "06/12/2023"
                 // }
+                required
               />
             </>
           )}
@@ -339,14 +343,18 @@ export const Pframe = ({
 
     <div className="flex flex-col  space-y-4 m-6">
     
-                     <label htmlFor="status" className="relative w-fit mt-[-1.00px] font-typography-styles-small-regular font-[number:var(--typography-styles-small-regular-font-weight)] text-foundationtext-colorsprimary-text-color text-[length:var(--typography-styles-small-regular-font-size)] tracking-[var(--typography-styles-small-regular-letter-spacing)] leading-[var(--typography-styles-small-regular-line-height)] whitespace-nowrap [font-style:var(--typography-styles-small-regular-font-style)]">Status</label>
+                     <label htmlFor="status" className="relative w-fit mt-[-1.00px] font-typography-styles-small-regular font-[number:var(--typography-styles-small-regular-font-weight)] text-foundationtext-colorsprimary-text-color text-[length:var(--typography-styles-small-regular-font-size)] tracking-[var(--typography-styles-small-regular-letter-spacing)] leading-[var(--typography-styles-small-regular-line-height)] whitespace-nowrap [font-style:var(--typography-styles-small-regular-font-style)]">
+                      Status</label>
 
       <div className="relative w-full">
         <select
+            name="status"
+
           id="status"
           className="appearance-none border rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white w-full" // Set width to full frame
-          // value={selectedStatus}
-          // onChange={handleStatusChange}
+          // value='todo'
+          onChange={handleC}
+          
         >
           <option value="" disabled>Select Status</option>
           {statusOptions.map((option) => (
@@ -382,12 +390,12 @@ export const Pframe = ({
         /> */}
         <div className="flex items-center justify-center flex-no-wrap gap-1 relative w-69 h-22 mx-0 px-8 py-10 rounded">
   
-  <button className="  rounded-[8px] border-none bg-foundationbrandbrand-50  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-blue-600 text-base font-normal leading-4 text-left whitespace-nowrap z-1">
+  <button className=" cursor-pointer rounded-[8px] border-none bg-foundationbrandbrand-50  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-blue-600 text-base font-normal leading-4 text-left whitespace-nowrap z-1">
     Cancel
   </button>
 </div>
-        <div className="flex items-center justify-center flex-no-wrap gap-1 relative w-69 h-22 mx-0 px-8 py-10 rounded">  
-  <button onClick={handleButtonC}  className="  rounded-[8px] border-none bg-foundationbrandbrand-500  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-white  text-base font-normal leading-4 text-left whitespace-nowrap z-1">
+        <div className="  flex items-center justify-center flex-no-wrap gap-1 relative w-69 h-22 mx-0 px-8 py-10 rounded">  
+  <button type="submit"  onClick={handleButtonC}  className="cursor-pointer  rounded-[8px] border-none bg-foundationbrandbrand-500  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-white  text-base font-normal leading-4 text-left whitespace-nowrap z-1">
     Add
   </button>
 </div>
