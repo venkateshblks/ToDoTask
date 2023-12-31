@@ -1,5 +1,6 @@
 
-import React from "react";
+// import React from "react";
+import React, { useState, useEffect } from 'react';
 import { useReducer } from "react";
 import { DataLabel } from "../DataLabel";
 
@@ -19,6 +20,42 @@ export const Rectangle = ({ stateProp, className }) => {
       deadline: '11/22/1111',
       status: 'Completed',
     }]
+
+    
+
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from the server
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://scaling-invention-5p4vgvwxg6jc7wqw-4000.app.github.dev/api/getData');
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const jsonData = await response.json();
+      setData(jsonData);
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
+    }
+  };
+return (
+    <div>
+      <h1>Data from MySQL:</h1>
+      <ul>
+        {data.map((item) => (
+          <li>{item.taskName}</li>
+          // Adjust "id" and "name" based on your table columns
+        ))}
+      </ul>
+    </div>
+  );
+
   return (<>
    { k.map((k)=>{
     

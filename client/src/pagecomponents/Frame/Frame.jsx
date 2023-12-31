@@ -8,6 +8,7 @@ import { Button } from "../Button";
 import { FormField } from "../FormField";
 import { TextField } from "../TextField";
 import { TaskBoardsWith } from "../../screens/TaskBoardsWith/TaskBoardsWith";
+import axios from 'axios'
 export const Pframe = ({
  
  
@@ -64,17 +65,28 @@ export const Pframe = ({
     }));
   };
   
-  const handleButtonC = (e) => {
-    // e.preventDefault()
-    // Convert formData to JSON and store or process as needed
-    // e.preventDefault()
+  // const handleButtonC = (e) => {
+  //   // e.preventDefault()
+  //   // Convert formData to JSON and store or process as needed
+  //   // e.preventDefault()
 
-    const jsonData = JSON.stringify(formData);
-    console.log(jsonData);
-    alert(jsonData)
-    // Add logic to save or process the JSON data
+  //   const jsonData = JSON.stringify(formData);
+  //   console.log(jsonData);
+  //   alert(jsonData)
+  //   // Add logic to save or process the JSON data
+  // };
+
+  const handleButtonC = async (e) => {
+    e.preventDefault()
+    console.log(formData)
+
+    try {
+      const response = await axios.post('https://scaling-invention-5p4vgvwxg6jc7wqw-4000.app.github.dev/api/addTask', formData);
+      console.log(response.data); // Log the response from the server
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
-
 
 
   const [formValue, setFormValue] = useState(
@@ -85,6 +97,7 @@ export const Pframe = ({
     setFormValue(event.target.value);
     console.log(formValue)
   };
+  
   return (<>
   {/* {showFrameScreen ? <YourComponent /> : null} */}
   {showFrameScreen && null}
