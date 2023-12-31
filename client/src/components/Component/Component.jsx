@@ -87,7 +87,7 @@ export const Component = ({ stateProp, hover, className }) => {
         </div>
       </button></div>
       {showFrameScreen && 
-        <div className=" top-0 left-1/4 ">
+        <div className=" z-30 fixed bg-white top-20 left-1/4 ">
        {/* <div className="bg-white p-8 rounded-md shadow-md max-w-md w-full md:max-w-lg"> */}
           <FrameScreen/>
      </div>

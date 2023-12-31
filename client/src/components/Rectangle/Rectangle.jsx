@@ -8,18 +8,18 @@ export const Rectangle = ({ stateProp, className }) => {
   const [state, dispatch] = useReducer(reducer, {
     state: stateProp || "default",
   });
-    k=[{
-      taskName: 'hello',
-      startDate: '11/11/1111',
-      deadline: '11/22/1111',
-      status: 'todo',
-    },
-    {
-      taskName: 'byee',
-      startDate: '11/11/1432',
-      deadline: '11/22/1111',
-      status: 'Completed',
-    }]
+    // k=[{
+    //   taskName: 'hello',
+    //   startDate: '11/11/1111',
+    //   deadline: '11/22/1111',
+    //   status: 'todo',
+    // },
+    // {
+    //   taskName: 'byee',
+    //   startDate: '11/11/1432',
+    //   deadline: '11/22/1111',
+    //   status: 'Completed',
+    // }]
 
     
 

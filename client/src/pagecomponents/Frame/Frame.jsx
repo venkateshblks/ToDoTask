@@ -37,6 +37,8 @@ export const Pframe = ({
     // Toggle the state to show/hide FrameScreen
   // useCallback(()=>{  setShowFrameScreen(true);},[])
   setShowFrameScreen(true);
+  // setShowFrameScreen(false);
+  // window.location.reload();
     // alert(handleC)
     // alert(showFrameScreen)
   };
@@ -77,12 +79,16 @@ export const Pframe = ({
   // };
 
   const handleButtonC = async (e) => {
-    // e.preventDefault()
+    e.preventDefault()
+     
+     
     console.log(formData)
 
     try {
       const response = await axios.post('https://scaling-invention-5p4vgvwxg6jc7wqw-4000.app.github.dev/api/addTask', formData);
-      console.log(response.data); // Log the response from the server
+      console.log(response.data);
+      setShowFrameScreen(true);
+
     } catch (error) {
       console.error('Error:', error);
     }
@@ -104,7 +110,6 @@ export const Pframe = ({
   {showFrameScreen ||
   
     <div className="inline-flex flex-col items-start overflow-hidden rounded-[10px] relative">
-      <form>
       <div className="[border-bottom-style:solid] border-foundationbrandbrand-75 w-[670px] flex items-center px-[24px] py-[10px] h-[52px] border-b justify-between bg-white relative">
         <div className="font-typography-styles-large-regular w-fit tracking-[var(--typography-styles-large-regular-letter-spacing)] [font-style:var(--typography-styles-large-regular-font-style)] text-[length:var(--typography-styles-large-regular-font-size)] text-foundationbrandbrand-700 font-[number:var(--typography-styles-large-regular-font-weight)] leading-[var(--typography-styles-large-regular-line-height)] whitespace-nowrap relative">
           {["card-state3", "filled", "unfilled"].includes(state.cardState) && (
@@ -115,6 +120,7 @@ export const Pframe = ({
         </div>
        <button onClick={handleButtonClick}> <X2   className=" cursor-pointer !relative !w-[20px] !h-[20px]" /></button>
       </div>
+      <form  method='POST'>
       <div
         className="w-[670px] flex flex-col items-start gap-[24px] flex-[0_0_auto] px-[24px] py-[16px] bg-white relative"
         onClick={() => {
@@ -155,7 +161,7 @@ export const Pframe = ({
             <TextField
               className="deadline"
               value={formData.taskName}
-              onChange={handleC}
+              // onChange={handleC}
           
               // showLeftIcon={false}
               // showRightIcon={false}
@@ -405,12 +411,12 @@ export const Pframe = ({
         /> */}
         <div className="flex items-center justify-center flex-no-wrap gap-1 relative w-69 h-22 mx-0 px-8 py-10 rounded">
   
-  <button className="cursor-pointer rounded-[8px] border-none bg-foundationbrandbrand-50  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-blue-600 text-base font-normal leading-4 text-left whitespace-nowrap z-1">
+  <button onClick={handleButtonClick} className="cursor-pointer rounded-[8px] border-none bg-foundationbrandbrand-50  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-blue-600 text-base font-normal leading-4 text-left whitespace-nowrap z-1">
     Cancel
   </button>
 </div>
         <div className="  flex items-center justify-center flex-no-wrap gap-1 relative w-69 h-22 mx-0 px-8 py-10 rounded">  
-  <button type="submit"  onClick={handleButtonC}  className="cursor-pointer  rounded-[8px] border-none bg-foundationbrandbrand-500  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-white  text-base font-normal leading-4 text-left whitespace-nowrap z-1">
+  <button  onClick={handleButtonC}  className="cursor-pointer  rounded-[8px] border-none bg-foundationbrandbrand-500  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-white  text-base font-normal leading-4 text-left whitespace-nowrap z-1">
     Add
   </button>
 </div>
