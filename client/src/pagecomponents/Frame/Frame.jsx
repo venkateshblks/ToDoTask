@@ -77,7 +77,7 @@ export const Pframe = ({
   // };
 
   const handleButtonC = async (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     console.log(formData)
 
     try {

@@ -34,7 +34,7 @@ export const Rectangle = ({ stateProp, className }) => {
   const fetchData = async () => {
     try {
       const response = await fetch('https://scaling-invention-5p4vgvwxg6jc7wqw-4000.app.github.dev/api/getData');
-      if (!response.ok) {
+      if (!response.ok) {     
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
@@ -44,20 +44,20 @@ export const Rectangle = ({ stateProp, className }) => {
       console.error('Error fetching data:', error.message);
     }
   };
-return (
-    <div>
-      <h1>Data from MySQL:</h1>
-      <ul>
-        {data.map((item) => (
-          <li>{item.taskName}</li>
-          // Adjust "id" and "name" based on your table columns
-        ))}
-      </ul>
-    </div>
-  );
+// return (
+//     <div>
+//       <h1>Data from MySQL:</h1>
+//       <ul>
+//         {data.map((item) => (
+//           <li key={item.taskName}>{item.taskName}</li>
+//           // Adjust "id" and "name" based on your table columns
+//         ))}
+//       </ul>
+//     </div>
+//   );
 
   return (<>
-   { k.map((k)=>{
+   { data.map((k)=>{
     
     return (
        <div
@@ -77,6 +77,7 @@ return (
         dispatch("mouse_enter");
       }}
     >
+   
       <div
         className={`font-typography-styles-large-semi-bold tracking-[var(--typography-styles-large-semi-bold-letter-spacing)] text-[length:var(--typography-styles-large-semi-bold-font-size)] [font-style:var(--typography-styles-large-semi-bold-font-style)] text-black font-[number:var(--typography-styles-large-semi-bold-font-weight)] leading-[var(--typography-styles-large-semi-bold-line-height)] whitespace-nowrap ${
           state.state === "default" ? "w-fit" : ""
