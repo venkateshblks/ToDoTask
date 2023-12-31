@@ -39,21 +39,6 @@ export const TaskBoardsWith = () => {
           </div>
         </div>
         <div className="absolute w-[1200px] h-[1024px] top-0 left-[240px]">
-          {/* <img
-            className="left-[304px] absolute w-[5px] h-[826px] top-[133px] object-cover"
-            alt="Line"
-            src="https://c.animaapp.com/eSquVIIx/img/line-1.svg"
-            />
-          <img
-            className="left-[598px] absolute w-[5px] h-[826px] top-[133px] object-cover"
-            alt="Line"
-            src="https://c.animaapp.com/eSquVIIx/img/line-1.svg"
-            />
-          <img
-            className="left-[892px] absolute w-[5px] h-[826px] top-[133px] object-cover"
-            alt="Line"
-            src="https://c.animaapp.com/eSquVIIx/img/line-1.svg"
-            /> */}
           <div className="inline-flex flex-col items-start gap-[20px] absolute top-[84px] left-[24px]">
             <div className="inline-flex flex-col items-start gap-[19px] relative flex-[0_0_auto]">
               <StatusBadge badgeType="brand" className="!h-[32px] !px-[12px] !py-[4px]" text="To Do" />

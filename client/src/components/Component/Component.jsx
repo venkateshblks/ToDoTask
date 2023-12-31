@@ -32,7 +32,7 @@ export const Component = ({ stateProp, hover, className }) => {
     >
       
       <button onClick={handleButtonClick}
-        className={`w-[270px] flex items-center gap-[4px] px-[8px] py-[10px] h-[32px] rounded-[8px] justify-center relative all-[unset] box-border ${
+        className={`cursor-pointer w-[270px] flex items-center gap-[4px] px-[8px] py-[10px] h-[32px] rounded-[8px] justify-center relative all-[unset] box-border ${
           state.state === "completed-add" && state.hover
             ? "bg-foundation-successsuccess-100"
             : state.state === "to-do-add" && !state.hover

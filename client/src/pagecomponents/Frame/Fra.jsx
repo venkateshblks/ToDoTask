@@ -1,3 +1,4 @@
+
 import React ,{useCallback, useState} from "react";
 import { useReducer } from "react";
 import { Calendar2 } from "../../pageicons/Calendar2";
@@ -8,7 +9,6 @@ import { FormField } from "../FormField";
 import { TextField } from "../TextField";
 import { TaskBoardsWith } from "../../screens/TaskBoardsWith/TaskBoardsWith";
 import axios from 'axios'
-// import { Component } from "../../components/Component";
 export const Pframe = ({
  
  
@@ -27,17 +27,28 @@ export const Pframe = ({
     { value: 'review', label: 'In Review' },
     { value: 'completed', label: 'Completed' },
   ];
+  
   const [state, dispatch] = useReducer(reducer, {
     cardState: cardState || "unfilled"
   });
   const [showFrameScreen, setShowFrameScreen] = useState(false);
-  const handleButtonClick = (e) => {
-    e.preventDefault()
-    setShowFrameScreen(true)
-    // if (childComponentCallback) {
-    //   childComponentCallback();
-    // }
+  // const K='hrello'
+  const handleButtonClick = () => {
+    // Toggle the state to show/hide FrameScreen
+  // useCallback(()=>{  setShowFrameScreen(true);},[])
+  setShowFrameScreen(true);
+  // setShowFrameScreen(false);
+  // window.location.reload();
+    // alert(handleC)
+    // alert(showFrameScreen)
   };
+  // if(showFrameScreen){
+
+  //   <TaskBoardsWith/>
+  // }
+  // else{
+  //   useCallback(()=>{  setShowFrameScreen(false);},[])
+  // }
   const [formData, setFormData] = useState({
     taskName: '',
     startDate: '',
@@ -55,15 +66,21 @@ export const Pframe = ({
       [name]: value,
     }));
   };
+  
+  // const handleButtonC = (e) => {
+  //   // e.preventDefault()
+  //   // Convert formData to JSON and store or process as needed
+  //   // e.preventDefault()
+
+  //   const jsonData = JSON.stringify(formData);
+  //   console.log(jsonData);
+  //   alert(jsonData)
+  //   // Add logic to save or process the JSON data
+  // };
+
   const handleButtonC = async (e) => {
     e.preventDefault()
-    // if(formData==null)
-    // return 
-     if (!formData.taskName || !formData.startDate || !formData.deadline){
-       console.log('data not added')
-       setShowFrameScreen(true);
-      return 
-     }
+     
      
     console.log(formData)
 
@@ -71,9 +88,6 @@ export const Pframe = ({
       const response = await axios.post('https://scaling-invention-5p4vgvwxg6jc7wqw-4000.app.github.dev/api/addTask', formData);
       console.log(response.data);
       setShowFrameScreen(true);
-      window.location.reload()
-
-     
 
     } catch (error) {
       console.error('Error:', error);
@@ -81,13 +95,17 @@ export const Pframe = ({
   };
 
 
-  const [formValue, setFormValue] = useState('' );
+  const [formValue, setFormValue] = useState(
+    '' // Initial value based on your logic
+  );
+
   const handleChange = (event) => {
     setFormValue(event.target.value);
     console.log(formValue)
   };
   
   return (<>
+  {/* {showFrameScreen ? <YourComponent /> : null} */}
   {/* {showFrameScreen && null} */}
   {showFrameScreen ||
   
@@ -115,13 +133,21 @@ export const Pframe = ({
           
           <input
             axis="vertical"
+            // className="!self-stretch !flex-[0_0_auto] !w-full"
             className="   appearance-none border rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white w-full"
+            // hintText={false}
             size="large"
             name="taskName"
 
             text="Name of the Task"
+            // textFieldShowLeftIcon={false}
+            // textFieldShowRightIcon={false}
              value={formData.taskName}
              onChange={handleC}
+            // textFieldTextActive={state.cardState === "unfilled" ? false : true}
+            // textFieldTextText={
+            //   state.cardState === "unfilled" ? "Text" : "Create a to-do app"
+            // }
             required
           />
   )}
@@ -135,6 +161,14 @@ export const Pframe = ({
             <TextField
               className="deadline"
               value={formData.taskName}
+              // onChange={handleC}
+          
+              // showLeftIcon={false}
+              // showRightIcon={false}
+              // size="large"
+              // stateProp="default"
+              // // textActive={false}
+              // textText="Text"
             />
             <p className="relative w-fit font-typography-styles-small-regular font-[number:var(--typography-styles-small-regular-font-weight)] text-foundation-errorerror-500 text-[length:var(--typography-styles-small-regular-font-size)] tracking-[var(--typography-styles-small-regular-letter-spacing)] leading-[var(--typography-styles-small-regular-line-height)] whitespace-nowrap [font-style:var(--typography-styles-small-regular-font-style)]">
               Please fill the task name
@@ -156,27 +190,64 @@ export const Pframe = ({
         <div className="w-full flex self-stretch items-start gap-[10px] flex-[0_0_auto] relative">
           {["card-state4", "filled", "unfilled"].includes(state.cardState) && (
             <>
-             <input
+            {/* <FormField
+            type='date'
+  axis="vertical"
+  className="!w-[unset]"
+  hintText={false}
+  size="large"
+  text="Deadline"
+  textFieldShowLeftIcon={false}
+  textFieldTextActive={false}
+  textFieldTextText="DD/MM/YYYY"
+/> */}
+        
+              <input
               type="date"
               name="startDate"
               value={formData.startDate}
               onChange={handleC} 
                 axis="vertical"
+                // className="!flex-1 !grow !w-[unset] !self-stretch !w-full border border-solid border-gray-300 rounded px-4 py-2"
+                // className="!flex-1 !grow !w-[unset]"
                 className='appearance-none  border border-solid border-blue-gray-300 rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white w-1/2 flex-shrink-0 flex-basis-auto relative font-nunito-sans text-gray-500 text-base font-normal leading-6 text-left whitespace-nowrap z-2'
+
+                // hintText={false}
                 size="large"
                 text="Start date"
+                // textFieldIcon={formFieldTextFieldIcon}
+                // textFieldShowLeftIcon={false}
+                // textFieldTextActive={
+                //   state.cardState === "unfilled" ? false : true
+                // }
+                // textFieldTextText={
+                //   state.cardState === "unfilled" ? "DD/MM/YYYY" : "01/12/2023"
+                // }
                 required
               />
 
               <input
+        //  className="!flex-1 !grow !w-[unset] !self-stretch !w-full border border-solid border-gray-300 rounded px-4 py-2"
                   type="date"
                   name="deadline"
                   value={formData.deadline}
                   onChange={handleC}
+              
                 axis="vertical"
+                // className="!flex-1 !grow !w-[unset]"
                 className='appearance-none  border border-solid border-blue-gray-300 rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white w-1/2 flex-shrink-0 flex-basis-auto relative font-nunito-sans text-gray-500 text-base font-normal leading-6 text-left whitespace-nowrap z-2'
+
+                // hintText={false}
                 size="large"
                 text="Deadline"
+                // textFieldIcon={override}
+                // textFieldShowLeftIcon={false}
+                // textFieldTextActive={
+                //   state.cardState === "unfilled" ? false : true
+                // }
+                // textFieldTextText={
+                //   state.cardState === "unfilled" ? "DD/MM/YYYY" : "06/12/2023"
+                // }
                 required
               />
             </>
@@ -222,6 +293,75 @@ export const Pframe = ({
             </>
           )}
         </div></div>
+
+        {/* <FormField
+          axis="vertical"
+          className="!self-stretch !flex-[0_0_auto] !w-full"
+          hintText={false}
+          size="large"
+          text="Status"
+          textFieldIcon={formFieldTextFieldIcon1}
+          textFieldShowLeftIcon={false}
+          textFieldTextActive
+          textFieldTextText="To Do"
+        /> */}
+          {/* <div>
+      <label htmlFor="status">Status:</label>
+      <select
+        id="status"
+        className="!self-stretch !flex-[0_0_auto] !w-full"
+        className="appearance-none border rounded-md py-2 px-3 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white"
+        className="!flex-1 !grow !w-[unset]"
+
+        value={selectedStatus}
+        onChange={handleStatusChange}
+      >
+        <option value="">Select Status</option>
+        {statusOptions.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    </div>
+      </div> */}
+
+
+{/* 
+      <div className="flex items-center space-x-4">
+      <label htmlFor="status" className="text-sm font-medium text-gray-600">
+        Status:
+      </label>
+      <div className="relative">
+        <select
+          id="status"
+          className="appearance-none border rounded-md py-2 px-3 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white"
+          // value={selectedStatus}
+          // onChange={handleStatusChange}
+        >
+          <option value="" disabled>Select Status</option>
+          {statusOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+          <svg
+            className="fill-current h-4 w-4"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M5 10l5 5 5-5z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div> */}
+
+
+
     <div className="flex flex-col  space-y-4 m-6">
     
                      <label htmlFor="status" className="relative w-fit mt-[-1.00px] font-typography-styles-small-regular font-[number:var(--typography-styles-small-regular-font-weight)] text-foundationtext-colorsprimary-text-color text-[length:var(--typography-styles-small-regular-font-size)] tracking-[var(--typography-styles-small-regular-letter-spacing)] leading-[var(--typography-styles-small-regular-line-height)] whitespace-nowrap [font-style:var(--typography-styles-small-regular-font-style)]">
@@ -233,6 +373,7 @@ export const Pframe = ({
 
           id="status"
           className="appearance-none border rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white w-full" // Set width to full frame
+          // value='todo'
           onChange={handleC}
           
         >
@@ -256,7 +397,18 @@ export const Pframe = ({
         </div>
       </div>
     </div>
+
+
       <div className="border-foundationbrandbrand-75 w-[670px] border-t flex items-center [border-top-style:solid] gap-[10px] flex-[0_0_auto] px-[24px] py-[10px] justify-end bg-white relative">
+        {/* <Button
+
+          size="small"
+          sizeSmallStateClassName="!flex-[0_0_auto]"
+          stateProp="default"
+          text="Cancel"
+          type="secondary"
+          onClick={handleButtonC} 
+        /> */}
         <div className="flex items-center justify-center flex-no-wrap gap-1 relative w-69 h-22 mx-0 px-8 py-10 rounded">
   
   <button onClick={handleButtonClick} className="cursor-pointer rounded-[8px] border-none bg-foundationbrandbrand-50  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-blue-600 text-base font-normal leading-4 text-left whitespace-nowrap z-1">
@@ -264,10 +416,20 @@ export const Pframe = ({
   </button>
 </div>
         <div className="  flex items-center justify-center flex-no-wrap gap-1 relative w-69 h-22 mx-0 px-8 py-10 rounded">  
-  <button type="submit" onClick={handleButtonC}  className="cursor-pointer  rounded-[8px] border-none bg-foundationbrandbrand-500  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-white  text-base font-normal leading-4 text-left whitespace-nowrap z-1">
+  <button  onClick={handleButtonC}  className="cursor-pointer  rounded-[8px] border-none bg-foundationbrandbrand-500  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-white  text-base font-normal leading-4 text-left whitespace-nowrap z-1">
     Add
   </button>
 </div>
+        {/* <Button
+          onSizeSmallStateClick={() => {
+            dispatch("click_120");
+          }}
+          size="small"
+          sizeSmallStateClassName="!flex-[0_0_auto]"
+          stateProp="default"
+          text={state.cardState === "card-state4" ? "Save" : "Add"}
+          type="primary"
+        /> */}
       </div>
       </form>
     </div> }</>

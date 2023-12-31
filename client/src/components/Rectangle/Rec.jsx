@@ -1,3 +1,5 @@
+
+// import React from "react";
 import React, { useState, useEffect } from 'react';
 import { useReducer } from "react";
 import { DataLabel } from "../DataLabel";
@@ -7,6 +9,22 @@ export const Rectangle = ({ stateProp, className }) => {
   const [state, dispatch] = useReducer(reducer, {
     state: stateProp || "default",
   });
+    // k=[{
+    //   taskName: 'hello',
+    //   startDate: '11/11/1111',
+    //   deadline: '11/22/1111',
+    //   status: 'todo',
+    // },
+    // {
+    //   taskName: 'byee',
+    //   startDate: '11/11/1432',
+    //   deadline: '11/22/1111',
+    //   status: 'Completed',
+    // }]
+
+    
+
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -27,13 +45,36 @@ export const Rectangle = ({ stateProp, className }) => {
       console.error('Error fetching data:', error.message);
     }
   };
-  
+// return (
+//     <div>
+//       <h1>Data from MySQL:</h1>
+//       <ul>
+//         {data.map((item) => (
+//           <li key={item.taskName}>{item.taskName}</li>
+//           // Adjust "id" and "name" based on your table columns
+//         ))}
+//       </ul>
+//     </div>
+//   );
 
-  return (<div>
+  return (<>
    { data.map((k)=>{
     
     return (<>
-          <div key={k.id}
+     {/* <div
+          key={k.id}
+          className={classNames(
+            'bg-[#ffffff] ', 
+            {
+              'completed-class': k.status === 'completed',
+              'cursor-pointer': k.status === 'todo',
+              'cursor-wait object-left  inset-x-0.5': k.status === 'inprogress',
+              'cursor-cell': k.status === 'review',
+            }
+          )}
+        > */}
+          {/* {k.status} */}
+       <div key={k.id}
     
       className={`w-[270px] overflow-hidden rounded-[8px] bg-[#ffffff] relative 
       ${
@@ -47,6 +88,13 @@ export const Rectangle = ({ stateProp, className }) => {
           : "shadow-[0px_0px_8px_#3659e229]"
       }
        ${state.state === "default" ? "p-[16px]" : ""} ${state.state === "hover" ? "h-[114px]" : ""} ${className}`}
+    //   onMouseLeave={() => {
+    //     dispatch("mouse_leave");
+    //   }}
+    //   onMouseEnter={() => {
+    //     dispatch("mouse_enter");
+    //   }
+    // }
     >
    
       <div 
@@ -82,8 +130,13 @@ export const Rectangle = ({ stateProp, className }) => {
           visible={false}
         />
       </div>
-    </div>  
-    </> ) })}</div>
+    </div>
+    {/* </div> */}
+    
+    
+    
+    
+    </> ) })}</>
   );
 };
 
