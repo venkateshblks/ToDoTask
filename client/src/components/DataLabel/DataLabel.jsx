@@ -1,7 +1,3 @@
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/
 
 import React from "react";
 import { Sparkle1 } from "../../icons/Sparkle1";
@@ -94,7 +90,7 @@ export const DataLabel = ({
             <Label
               badgeType="brand"
               className="!flex-[0_0_auto]"
-              icon={<Sparkle1 className="!relative !w-[12px] !h-[12px]" />}
+              icon={<Sparkle1 className=" !relative !w-[12px] !h-[12px]" />}
               labelState="secondary"
               showIcon={labelShowIcon}
               size="small"

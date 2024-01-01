@@ -11,12 +11,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(bodyParser.json());
 app.use(cors())
 app.use(express.static(path.join(__dirname, '../client/dist')));
-// app.use((req, res, next) => {
-//     res.header('Access-Control-Allow-Origin', 'https://scaling-invention-5p4vgvwxg6jc7wqw-1234.app.github.dev');
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type');
-//     next();
-//   });
+
 app.get("/", cors(), async (req, res) => {
 	res.send("This is working")
 })
