@@ -1,27 +1,53 @@
-## Getting started
+# My To-Do Website
 
-> **Prerequisites:**
-> The following steps require [NodeJS](https://nodejs.org/en/) to be installed on your system, so please
-> install it beforehand if you haven't already.
+## Overview
 
-To get started with your project, you'll first need to install the dependencies with:
+Welcome to My To-Do Website! This project is a simple and intuitive to-do list application designed to help you stay organized and manage your tasks efficiently.
 
-```
-npm install
-```
+## Technology Used
 
-Then, you'll be able to run a development version of the project with:
+- **Frontend:**
+  - HTML
+  - CSS (Tailwind CSS)
+  - JavaScript (React.js)
 
-```
-npm run dev
-```
+- **Backend:**
+  - Node.js
+  - Express 
 
-After a few seconds, your project should be accessible at the address
-[http://localhost:1234/](http://localhost:1234/)
+- **Database:**
+  - MySQL
 
+- **Package Manager:**
+  - npm (Node Package Manager)
 
-If you are satisfied with the result, you can finally build the project for release with:
+## Getting Started
 
-```
-npm run build
-```
+### Installation
+
+1. Clone the repository:(or Use GitHub Codespaces)
+
+   ```bash
+   git clone https://github.com/venkateshblks/ToDoTask
+2. Navigate to the project directory:
+    ```bash
+    cd server
+
+3. Install dependencies:
+    ```bash
+    npm install
+### Usage
+  1. Start the application:
+
+       ```bash
+       npm start
+2.Open your browser and visit http://localhost:4000
+
+3.Get organized by adding your tasks to the to-do list!
+
+    
+
+## Acknowledgments
+
+- Special thanks to [Alcovex ](https://alcovex.studio/)  for encouraging and providing this opportunity
+
