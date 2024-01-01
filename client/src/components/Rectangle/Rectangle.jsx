@@ -8,6 +8,7 @@ export const Rectangle = ({ stateProp, className ,taskk}) => {
     state: stateProp || "default",
   });
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Fetch data from the server
@@ -26,11 +27,18 @@ export const Rectangle = ({ stateProp, className ,taskk}) => {
     } catch (error) {
       console.error('Error fetching data:', error.message);
     }
+    finally {
+      setLoading(false); 
+    }
   };
   
 
   return (<>
-   { data.map((k)=>{
+ 
+      {loading ? (
+        <p>Loading data...</p>
+      ) : (
+        data.map((k)=>{
     // console.log(taskk)
     const shouldRender = k.status === taskk;
     
@@ -88,6 +96,7 @@ export const Rectangle = ({ stateProp, className ,taskk}) => {
      
     </> )  : null;
   })
+)
 }</>
   );
 };
