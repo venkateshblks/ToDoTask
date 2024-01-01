@@ -31,6 +31,7 @@ export const Pframe = ({
     cardState: cardState || "unfilled"
   });
   const [showFrameScreen, setShowFrameScreen] = useState(false);
+  const [s, setS] = useState(false);
   const handleButtonClick = (e) => {
     e.preventDefault()
     setShowFrameScreen(true)
@@ -62,13 +63,15 @@ export const Pframe = ({
      if (!formData.taskName || !formData.startDate || !formData.deadline){
        console.log('data not added')
        setShowFrameScreen(true);
-      return 
+       return 
+      //  setShowFrameScreen(true);
      }
      
     // console.log(formData)
 
     try {
-      const response = await axios.post('https://localhost:4000/api/addTask', formData);
+      setS(true);
+      const response = await axios.post('https://todotest-lac.vercel.app/api/addTask', formData);
       console.log(response.data);
       setShowFrameScreen(true);
       window.location.reload()
@@ -77,6 +80,9 @@ export const Pframe = ({
 
     } catch (error) {
       console.error('Error:', error);
+    }
+    finally {
+      setS(false);
     }
   };
 
@@ -267,6 +273,7 @@ export const Pframe = ({
   <button type="submit" onClick={handleButtonC}  className="cursor-pointer  rounded-[8px] border-none bg-foundationbrandbrand-500  flex-shrink-0 flex-auto relative px-8  h-9 font-nunito-sans text-white  text-base font-normal leading-4 text-left whitespace-nowrap z-1">
     Add
   </button>
+  {s && <p>Submiting...</p>}
 </div>
       </div>
       </form>
