@@ -28035,7 +28035,7 @@ const Pframe = ({ cardState, formFieldTextFieldIcon = /*#__PURE__*/ (0, _jsxDevR
         // console.log(formData)
         try {
             setS(true);
-            const response = await (0, _axiosDefault.default).post("https://venkateshb.onrender.com/api/addTask", formData);
+            const response = await (0, _axiosDefault.default).post("https://todotest-lac.vercel.app/api/addTask", formData);
             console.log(response.data);
             setShowFrameScreen(true);
             window.location.reload();
@@ -33908,22 +33908,31 @@ const Rectangle = ({ stateProp, className, taskk })=>{
         state: stateProp || "default"
     });
     const [data, setData] = (0, _react.useState)([]);
+    const [loading, setLoading] = (0, _react.useState)(true);
     (0, _react.useEffect)(()=>{
         // Fetch data from the server
         fetchData();
     }, []);
     const fetchData = async ()=>{
         try {
-            const response = await fetch("https://venkateshb.onrender.com/api/getData");
+            const response = await fetch("https://todotest-lac.vercel.app/api/getData");
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
             const jsonData = await response.json();
             setData(jsonData);
         } catch (error) {
             console.error("Error fetching data:", error.message);
+        } finally{
+            setLoading(false);
         }
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: data.map((k)=>{
+        children: loading ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+            children: "Loading data..."
+        }, void 0, false, {
+            fileName: "src/components/Rectangle/Rectangle.jsx",
+            lineNumber: 39,
+            columnNumber: 9
+        }, undefined) : data.map((k)=>{
             // console.log(taskk)
             const shouldRender = k.status === taskk;
             return shouldRender ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -33939,7 +33948,7 @@ const Rectangle = ({ stateProp, className, taskk })=>{
                             children: k.taskName
                         }, void 0, false, {
                             fileName: "src/components/Rectangle/Rectangle.jsx",
-                            lineNumber: 54,
+                            lineNumber: 62,
                             columnNumber: 7
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -33955,7 +33964,7 @@ const Rectangle = ({ stateProp, className, taskk })=>{
                                     visible: false
                                 }, void 0, false, {
                                     fileName: "src/components/Rectangle/Rectangle.jsx",
-                                    lineNumber: 68,
+                                    lineNumber: 76,
                                     columnNumber: 9
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dataLabel.DataLabel), {
@@ -33968,26 +33977,26 @@ const Rectangle = ({ stateProp, className, taskk })=>{
                                     visible: false
                                 }, void 0, false, {
                                     fileName: "src/components/Rectangle/Rectangle.jsx",
-                                    lineNumber: 77,
+                                    lineNumber: 85,
                                     columnNumber: 9
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/Rectangle/Rectangle.jsx",
-                            lineNumber: 63,
+                            lineNumber: 71,
                             columnNumber: 7
                         }, undefined)
                     ]
                 }, k.id, true, {
                     fileName: "src/components/Rectangle/Rectangle.jsx",
-                    lineNumber: 39,
+                    lineNumber: 47,
                     columnNumber: 10
                 }, undefined)
             }, void 0, false) : null;
         })
     }, void 0, false);
 };
-_s(Rectangle, "HKyj1e8sIgFkmwO8FjQgjBIHXIc=");
+_s(Rectangle, "i2swZnRNsMPJrl3LSupPczEp9BQ=");
 _c = Rectangle;
 function reducer(state, action) {
     switch(action){
