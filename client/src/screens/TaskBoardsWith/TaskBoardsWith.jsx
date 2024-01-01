@@ -43,10 +43,17 @@ export const TaskBoardsWith = () => {
             <div className="inline-flex flex-col items-start gap-[19px] relative flex-[0_0_auto]">
               <StatusBadge badgeType="brand" className="!h-[32px] !px-[12px] !py-[4px]" text="To Do" />
             </div>
-            <div className="inline-flex flex-col items-start gap-[24px] relative flex-[0_0_auto]">
-              <Rectangle className="!flex-[0_0_auto]" stateProp="default" />
-              <Component className="!flex-[0_0_auto]" hover={false} stateProp="to-do-add" />
-            </div>
+                <div className="inline-flex flex-row items-end gap-[24px] relative">
+                  <div className="inline-flex flex-col items-start gap-[24px] relative flex-[0_0_auto]">
+                    <Rectangle className="!flex-[0_0_auto]" stateProp="default" taskk='todo'/>
+                    <Component className="!flex-[0_0_auto]" hover={false} stateProp="to-do-add" />
+                  </div>
+                  {/* <div className="inline-flex flex-col items-start gap-[24px] relative flex-[0_0_auto]">
+                    <Rectangle className="!flex-[0_0_auto]" stateProp="default" />
+                    <Component className="!flex-[0_0_auto]" hover={false} stateProp="to-do-add" />
+                  </div> */}
+                </div>
+            
           </div>
           <div className="inline-flex flex-col items-start gap-[20px] absolute top-[84px] left-[318px]">
             <div className="inline-flex flex-col items-start gap-[19px] relative flex-[0_0_auto]">
@@ -57,7 +64,9 @@ export const TaskBoardsWith = () => {
                 text1="In Progress"
               />
             </div>
-            <Component className="!flex-[0_0_auto]" hover={false} stateProp="in-progress-add" />
+            <Rectangle className="!flex-[0_0_auto]" stateProp="default"   taskk='inprogress' />
+
+            <Component className="!flex-[0_0_auto]" hover={false} stateProp="in-progress-add"  />
           </div>
           <div className="inline-flex flex-col items-start gap-[20px] absolute top-[84px] left-[612px]">
             <div className="inline-flex flex-col items-start gap-[19px] relative flex-[0_0_auto]">
@@ -68,12 +77,16 @@ export const TaskBoardsWith = () => {
                 text="In Review"
               />
             </div>
+            <Rectangle className="!flex-[0_0_auto]" stateProp="default"   taskk='review' />
+
             <Component className="!flex-[0_0_auto]" hover={false} stateProp="in-review-add" />
           </div>
           <div className="inline-flex flex-col items-start gap-[20px] absolute top-[84px] left-[906px]">
             <div className="inline-flex flex-col items-start gap-[19px] relative flex-[0_0_auto]">
               <StatusBadge badgeType="success" className="!h-[32px] !px-[12px] !py-[4px]" text="Completed" />
             </div>
+            <Rectangle className="!flex-[0_0_auto]" stateProp="default"   taskk='completed' />
+
             <Component className="!flex-[0_0_auto]" hover={false} stateProp="completed-add" />
           </div>
           <div className="flex w-[1200px] items-center gap-[10px] px-[24px] py-[16px] absolute top-0 left-0 border-b [border-bottom-style:solid] border-foundationbrandbrand-50">

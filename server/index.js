@@ -1,6 +1,7 @@
 const express = require("express");
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -9,6 +10,7 @@ app.use(express.urlencoded({extended:true}))
 // app.use(express.json())
 app.use(bodyParser.json());
 app.use(cors())
+app.use(express.static(path.join(__dirname, '../client/dist')));
 // app.use((req, res, next) => {
 //     res.header('Access-Control-Allow-Origin', 'https://scaling-invention-5p4vgvwxg6jc7wqw-1234.app.github.dev');
 //     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
