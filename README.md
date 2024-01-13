@@ -48,6 +48,6 @@ if the above website is not working then [Click Here](https://shiny-queijadas-d0
        npm start
 2.Open your browser and visit http://localhost:4000
 
-3.Get organized by adding your tasks to the to-do list!
+3.Get organized by adding your tasks to the to-do list
 
     
