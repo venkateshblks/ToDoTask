@@ -51,8 +51,3 @@ if the above website is not working then [Click Here](https://shiny-queijadas-d0
 3.Get organized by adding your tasks to the to-do list!
 
     
-
-## Acknowledgments
-
-- Special thanks to [Alcovex ](https://alcovex.studio/)  for encouraging and providing this opportunity
-
