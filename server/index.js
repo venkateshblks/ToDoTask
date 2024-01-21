@@ -29,7 +29,7 @@ app.post("/post_name", async (req, res) => {
 const connection = mysql.createConnection({
   host: "mysqlservice-3ba9f31c-testvenkat.a.aivencloud.com",
   user: "avnadmin",
-  password: "AVNS_KRH-2_9mVNnikO7l12z",
+  password: "",
   database: "defaultdb",
   port: 13330
 });
